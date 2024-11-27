@@ -38,5 +38,5 @@ class RaceBasicSchema(RaceBaseSchema):
     class Config:
         orm_mode = True 
 
-class RaceCreationSchema(RaceBaseSchema):
+class RaceCreationSchema(RaceSchema):
     season_id: int 
