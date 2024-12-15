@@ -1,12 +1,19 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from backend.utils.database import Base
+from backend.models.Team import Team
 
 class Season(Base):
     __tablename__ = "seasons"
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     year = Column(Integer, nullable=False)
-    races = relationship("Race", back_populates="season")  # Referencia tardía
+    races = relationship("Race", back_populates="season")
+    teams = relationship(
+        Team,
+        secondary="season_team",
+        back_populates="seasons",
+        cascade="all, delete"
+    )
 
 class Race(Base):
     __tablename__ = "races"
