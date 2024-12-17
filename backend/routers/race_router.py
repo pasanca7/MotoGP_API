@@ -5,11 +5,11 @@ from backend.models.Season import Race
 from backend.schemas.season_schemas import RaceSchema, RaceCreationSchema, RaceBasicSchema
 from backend.utils.database import get_db
 
-router = APIRouter(prefix="/races", tags=["races"])
+router = APIRouter(prefix="/races", tags=["Races"])
 
 # CRUD Race
 
-@router.post("/races/", response_model=RaceSchema)
+@router.post("/", response_model=RaceSchema)
 async def create_race(race: RaceCreationSchema, db: Session = Depends(get_db)):
     db_race = Race(
         sequence=race.sequence,
@@ -22,18 +22,18 @@ async def create_race(race: RaceCreationSchema, db: Session = Depends(get_db)):
     db.refresh(db_race)
     return db_race
 
-@router.get("/races/", response_model=List[RaceSchema])
+@router.get("/", response_model=List[RaceSchema])
 async def get_races(db: Session = Depends(get_db)):
     return db.query(Race).all()
 
-@router.get("/races/{race_id}", response_model=RaceSchema)
+@router.get("/{race_id}", response_model=RaceSchema)
 async def get_race(race_id: int, db: Session = Depends(get_db)):
     db_race = db.query(Race).filter(Race.id == race_id).first()
     if db_race is None:
         raise HTTPException(status_code=404, detail="Race not found")
     return db_race
 
-@router.put("/races/{race_id}", response_model=RaceSchema)
+@router.put("/{race_id}", response_model=RaceSchema)
 async def update_race(race_id: int, race: RaceCreationSchema, db: Session = Depends(get_db)):
     db_race = db.query(Race).filter(Race.id == race_id).first()
     if db_race is None:
@@ -46,7 +46,7 @@ async def update_race(race_id: int, race: RaceCreationSchema, db: Session = Depe
     db.refresh(db_race)
     return db_race
 
-@router.delete("/races/{race_id}", response_model=RaceBasicSchema)
+@router.delete("/{race_id}", response_model=RaceBasicSchema)
 async def delete_race(race_id: int, db: Session = Depends(get_db)):
     db_race = db.query(Race).filter(Race.id == race_id).first()
     if db_race is None:
