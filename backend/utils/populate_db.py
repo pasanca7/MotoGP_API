@@ -4,8 +4,7 @@ from backend.settings import DATASET_PATH
 from backend.models.Season import Season, Race
 from backend.models.Team import Team
 from backend.models.Rider import Rider, Contract
-from backend.utils.database import SessionLocal
-from backend.utils.database import Base, engine
+from backend.utils.database import SessionLocal, Base, engine
 
 def populate_db(db):
     if DATASET_PATH:

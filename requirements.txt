@@ -29,6 +29,7 @@ pexpect==4.9.0
 pickleshare==0.7.5
 platformdirs==4.3.6
 prompt-toolkit==3.0.48
+psycopg2-binary==2.9.3
 psutil==6.1.0
 ptyprocess==0.7.0
 pure-eval==0.2.3
@@ -36,6 +37,7 @@ pydantic==2.10.2
 pydantic-core==2.27.1
 pygments==2.18.0
 python-dateutil==2.9.0.post0
+python-dotenv==1.0.1
 pytz==2024.2
 pyzmq==26.2.0
 requests==2.32.3
@@ -49,6 +51,7 @@ tqdm==4.67.1
 traitlets==5.14.3
 typing-extensions==4.12.2
 tzdata==2024.2
+uvicorn==0.11.3
 urllib3==2.2.3
 wcwidth==0.2.13
 zipp==3.20.2
