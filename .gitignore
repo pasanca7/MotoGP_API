@@ -124,3 +124,16 @@ settings.env
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+npm-debug.log
