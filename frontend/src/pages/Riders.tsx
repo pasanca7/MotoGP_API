@@ -4,7 +4,7 @@ import { useRiders } from "../hooks/useRiders";
 const Riders: React.FC = () => {
   const { riders, loading, error } = useRiders();
 
-  if (loading) return <Typography>Cargando riders...</Typography>;
+  if (loading) return <Typography>Loading riders...</Typography>;
   if (error) return <Typography color="error">{error}</Typography>;
 
   return (

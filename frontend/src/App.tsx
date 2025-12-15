@@ -12,10 +12,7 @@ import Teams from "./pages/Teams";
 function App() {
   return (
     <BrowserRouter>
-      <AppBar
-        position="static"
-        sx={{ backgroundColor: "#111827" /* gris oscuro */ }}
-      >
+      <AppBar position="static" sx={{ backgroundColor: "#111827" }}>
         <Container maxWidth="lg">
           <Toolbar
             disableGutters
